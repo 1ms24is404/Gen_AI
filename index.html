@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Question Paper Generator</title>
+  
+  <!-- Modern Clean Font & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <!-- KaTeX for Math Formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Simple Navigation -->
+  <header class="navbar no-print">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-title">Question Paper Generator</span>
+      </div>
+      <div class="nav-links">
+        <select id="presetSelect" class="preset-dropdown">
+          <option value="">Choose Sample Preset...</option>
+          <option value="physics">Physics (Grade 12)</option>
+          <option value="cs">Computer Science (Data Structures)</option>
+          <option value="math">Mathematics (Calculus)</option>
+          <option value="history">World History</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Input Form Card -->
+      <section class="form-card no-print">
+        <div class="card-header">
+          <h2>Generate Exam Paper</h2>
+          <p>Fill in details below to generate a structured exam paper with solutions.</p>
+        </div>
+
+        <form id="generatorForm">
+          <div class="form-grid">
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" value="Physics" placeholder="e.g. Physics, Mathematics, History" required>
+            </div>
+
+            <div class="form-group">
+              <label for="grade">Target Level / Class</label>
+              <input type="text" id="grade" value="Class 12" placeholder="e.g. Class 10, Undergraduate" required>
+            </div>
+
+            <div class="form-group span-2">
+              <label for="topic">Topic / Sub-topics</label>
+              <input type="text" id="topic" value="Electrostatics, Gauss Law & Capacitance" placeholder="e.g. Quantum Mechanics, World War II, Binary Trees" required>
+            </div>
+
+            <div class="form-group">
+              <label for="difficulty">Difficulty Level</label>
+              <select id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="totalMarks">Total Marks</label>
+              <input type="number" id="totalMarks" value="50" min="10" max="100" required>
+            </div>
+
+            <div class="form-group span-2">
+              <label for="apiKey">Gemini API Key <span class="optional">(Optional - Uses built-in AI engine if empty)</span></label>
+              <input type="password" id="apiKey" placeholder="AIzaSy...">
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              Generate Question Paper
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Output Workspace Section -->
+      <section id="outputSection" class="output-section">
+        
+        <!-- Action Toolbar -->
+        <div class="paper-toolbar no-print">
+          <div class="view-toggles">
+            <button id="viewPaperBtn" class="toggle-btn active">Question Paper</button>
+            <button id="viewSolutionBtn" class="toggle-btn">Answer Key & Solution</button>
+          </div>
+          <div class="export-actions">
+            <button id="printBtn" class="btn btn-secondary">Print / Save PDF</button>
+            <button id="copyBtn" class="btn btn-secondary">Copy Text</button>
+          </div>
+        </div>
+
+        <!-- Question Paper Display Sheet -->
+        <div id="paperView" class="paper-sheet">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Solution Display Sheet (Hidden by default) -->
+        <div id="solutionView" class="paper-sheet" style="display: none;">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer no-print">
+    <p>AI Question Paper Generator &copy; 2026</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset="utf-8">
+  <title>AI Question Paper Generator - Project & Code Report</title>
+  <style>
+    body {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      padding: 40px;
+    }
+    h1 {
+      color: #0f172a;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 8px;
+      font-size: 24pt;
+    }
+    h2 {
+      color: #1e293b;
+      margin-top: 24px;
+      font-size: 16pt;
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
+    }
+    h3 {
+      color: #334155;
+      font-size: 13pt;
+    }
+    p, li {
+      font-size: 11pt;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 10.5pt;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: bold;
+    }
+    .code-block {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 12px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 10pt;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+    .output-placeholder {
+      background-color: #f0f9ff;
+      border: 2px dashed #0284c7;
+      padding: 20px;
+      margin: 20px 0;
+      min-height: 120px;
+      border-radius: 6px;
+    }
+    .placeholder-title {
+      font-weight: bold;
+      color: #0369a1;
+      font-size: 11pt;
+      margin-bottom: 8px;
+    }
+    .placeholder-hint {
+      color: #64748b;
+      font-style: italic;
+      font-size: 10pt;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 9.5pt;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AI Question Paper Generator & Solution Engine</h1>
+  <p><strong>Comprehensive System Architecture, Code Guide & Output Paste Sections</strong></p>
+  <p><em>Generated Date: October 2026 | Format: Microsoft Word Document (.doc)</em></p>
+
+  <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 20px 0;">
+
+  <!-- Section 1 -->
+  <h2>1. Project Overview</h2>
+  <p>The <strong>AI Question Paper Generator</strong> is a web application designed to generate formatted academic examination papers, complete step-by-step solution keys, and step-by-step marking rubrics. The system allows users to specify subject parameters, difficulty levels, target grade, sub-topic focus, and total marks, and outputs print-ready exam documents.</p>
+
+  <!-- Section 2 -->
+  <h2>2. Tools & Technologies Used</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Technology / Tool</th>
+        <th>Purpose & Functionality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Frontend Markup</strong></td>
+        <td>HTML5</td>
+        <td>Provides semantic structure for the input configuration form, preset selectors, paper sheet display, and action buttons.</td>
+      </tr>
+      <tr>
+        <td><strong>Styling & Design</strong></td>
+        <td>CSS3 (Custom Design System)</td>
+        <td>Implements clean typography (Inter font), background wallpaper integration, card elevation shadows, and <code>@media print</code> print layout engine.</td>
+      </tr>
+      <tr>
+        <td><strong>Application Logic</strong></td>
+        <td>Vanilla JavaScript (ES6+)</td>
+        <td>Manages user input handling, DOM event listeners, dual AI generation routing, and interactive view switching.</td>
+      </tr>
+      <tr>
+        <td><strong>AI Generation Engine</strong></td>
+        <td>Google Gemini 1.5 Flash API</td>
+        <td>Generates structured JSON question papers via direct REST integration (<code>generativelanguage.googleapis.com</code>).</td>
+      </tr>
+      <tr>
+        <td><strong>Offline Synthesis Engine</strong></td>
+        <td>Built-in JavaScript Engine</td>
+        <td>Fallback generator that synthesizes MCQs, Short Answer, and Long Answer questions instantly when no API key is provided.</td>
+      </tr>
+      <tr>
+        <td><strong>Math Typesetting</strong></td>
+        <td>KaTeX Math Engine</td>
+        <td>Renders LaTeX mathematical and physical equations (e.g., Gauss Law, integrals, matrices, vectors) on the paper sheet.</td>
+      </tr>
+      <tr>
+        <td><strong>Print & Document Export</strong></td>
+        <td>CSS Print Engine & Canvas</td>
+        <td>Formats the document into a standard university/school printable exam sheet for saving as PDF or printing directly.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Section 3 -->
+  <h2>3. Codebase Architecture & File Guide</h2>
+
+  <h3>3.1 File Structure</h3>
+  <div class="code-block">
+gen_ai/
+├── index.html        # Main HTML layout, input form, and paper container
+├── style.css         # Styling, wallpaper background, print rules
+├── app.js            # Controller script: API calls, paper synthesis, DOM rendering
+└── Project_Report.doc # Comprehensive report & output paste template
+  </div>
+
+  <h3>3.2 Detailed Code Explanation</h3>
+
+  <h4>A. `index.html` (Markup & Structure)</h4>
+  <p>Contains the input configuration form (Subject, Grade, Topic, Difficulty, Total Marks, Gemini API Key) and the output container with view toggle buttons (<em>Question Paper</em> vs <em>Answer Key & Solution</em>) and action triggers (<em>Print / Save PDF</em> and <em>Copy Text</em>).</p>
+
+  <h4>B. `style.css` (Visual Design & Print Layout)</h4>
+  <p>Configures a crisp off-white wallpaper background, card elevation shadows, and high-contrast typography. It contains a dedicated <code>@media print</code> section that hides all navigation elements and formats the exam paper onto clean white pages with standard margins when printing or saving as PDF.</p>
+
+  <h4>C. `app.js` (Core Generator & Rendering Engine)</h4>
+  <p>Contains the core JavaScript class <code>App</code> that handles:</p>
+  <ul>
+    <li><strong>Form Processing & Presets:</strong> Reads input fields or loads predefined sample configurations (Physics, Computer Science, Mathematics, History).</li>
+    <li><strong>Dual Generation Dispatch:</strong> If a Gemini API key is entered, it sends a structured JSON prompt to Gemini 1.5 Flash. Otherwise, it invokes the built-in <code>generateSynthesizedPaper()</code> method.</li>
+    <li><strong>Dynamic DOM Rendering:</strong> Builds the exam header (Institution, Exam Title, Subject Code, Time, Marks), instructions, and sections (Section A: MCQs, Section B: Short Answer, Section C: Long Answer).</li>
+    <li><strong>KaTeX LaTeX Integration:</strong> Calls <code>renderMathInElement()</code> to compile LaTeX formulas on the rendered paper sheet.</li>
+  </ul>
+
+  <!-- Section 4 -->
+  <h2>4. Question Paper Output & Paste Sections</h2>
+  <p>Use the styled placeholder sections below to paste generated question paper outputs, solution keys, and exam summaries for your documentation.</p>
+
+  <!-- Output Box 1 -->
+  <div class="output-placeholder">
+    <div class="placeholder-title">📋 PASTE GENERATED QUESTION PAPER OUTPUT HERE</div>
+    <div class="placeholder-hint">[ Paste the generated Question Paper text or markdown output here ]</div>
+  </div>
+
+  <!-- Output Box 2 -->
+  <div class="output-placeholder">
+    <div class="placeholder-title">🔑 PASTE ANSWER KEY & SOLUTION MANUAL HERE</div>
+    <div class="placeholder-hint">[ Paste the generated step-by-step solutions and marking rubric here ]</div>
+  </div>
+
+  <!-- Output Box 3 -->
+  <div class="output-placeholder">
+    <div class="placeholder-title">📊 PASTE PAPER ANALYTICS & MARK DISTRIBUTION SUMMARY HERE</div>
+    <div class="placeholder-hint">[ Paste total marks distribution, question count breakdown, and Bloom's cognitive taxonomy level here ]</div>
+  </div>
+
+  <!-- Section 5 -->
+  <h2>5. Conclusion & Verification</h2>
+  <p>The AI Question Paper Generator provides an end-to-end tool for educators, professors, and students to generate, customize, edit, and export examination papers. It works both online with Google Gemini API and offline with its built-in synthesis engine.</p>
+
+</body>
+</html>
